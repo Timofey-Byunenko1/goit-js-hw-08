@@ -1,4 +1,4 @@
-// Массив изображений
+
 const images = [
     {
       preview: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
@@ -47,13 +47,13 @@ const images = [
     },
   ];
   
-  // Создание галереи
+  
   const galleryContainer = document.querySelector('.gallery');
   const galleryMarkup = createGalleryMarkup(images);
   
   galleryContainer.innerHTML = galleryMarkup;
   
-  // Функция для создания разметки галереи
+  
   function createGalleryMarkup(images) {
     return images
       .map(({ preview, original, description }) => {
@@ -73,24 +73,24 @@ const images = [
       .join('');
   }
   
-  // Обработчик кликов по галерее
+  
   galleryContainer.addEventListener('click', onGalleryClick);
   
   function onGalleryClick(event) {
     event.preventDefault();
   
-    // Проверка, что клик был по изображению
+    
     const isImage = event.target.classList.contains('gallery-image');
     if (!isImage) return;
   
-    // Получение ссылки на большое изображение
+    
     const largeImageURL = event.target.dataset.source;
   
-    // Открытие модального окна
+    
     openModal(largeImageURL);
   }
   
-  // Функция для открытия модального окна
+  
   function openModal(imageUrl) {
     const instance = basicLightbox.create(`
       <img src="${imageUrl}" width="800" height="600">
